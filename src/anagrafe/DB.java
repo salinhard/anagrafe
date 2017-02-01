@@ -1,15 +1,18 @@
 package anagrafe;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
+import java.util.Scanner;
 
 
 public class DB {
 	
 	private static final String nome_file = "db.txt";
 	
-	private PrintWriter output;
+	private static PrintWriter output;
+	private static Scanner input;
 	
 	
 	// COSTRUTTORE
@@ -21,7 +24,7 @@ public class DB {
 	} // fine costruttore
 	
 	
-	public void aggiungi_cittadino( Cittadino cittadino ) {
+	public static void aggiungi_cittadino( Cittadino cittadino ) {
 		
 	try {
 			
@@ -34,11 +37,11 @@ public class DB {
 		}
 		
 		output.print(cittadino.getNome());
-		output.print("#");
+		output.print(" ");
 		output.print(cittadino.getCognome());
-		output.print("#");
+		output.print(" ");
 		output.print(cittadino.getNato_il());
-		output.print("#");
+		output.print(" ");
 		output.println(cittadino.getNato_a());
 		
 		output.close();
@@ -47,8 +50,28 @@ public class DB {
 	
 	
 	
+	public static void recupera_cittadini() {
+		
+		try {
+			
+			input = new Scanner( new File(nome_file) );
+			
+		} catch (FileNotFoundException e) {
+			
+			System.out.print("Errore apertura file " + nome_file);
+			System.exit(0);
+			
+		}
+		
+		while (input.hasNextLine()) {
+			String riga = input.nextLine();
+			System.out.println(riga);
+		}
+		
+	}
 	
-	//output = new PrintWriter(nome_file);
+	
+	
 
 
 	
