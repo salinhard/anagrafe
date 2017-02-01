@@ -69,7 +69,7 @@ public class Gui_inserisci extends JFrame  {
 	
 	
 	private void inizializza(){
-		
+	
 		init_frame();
 		init_display();
 		
@@ -80,7 +80,7 @@ public class Gui_inserisci extends JFrame  {
 		
 		setResizable(false);
 		setBounds(100, 100, 450, 300);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		getContentPane().setLayout(null);
 
 		

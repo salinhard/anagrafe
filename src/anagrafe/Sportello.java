@@ -1,78 +1,72 @@
 package anagrafe;
 
 import java.awt.event.MouseAdapter;
-import java.util.Scanner;
 import java.awt.event.MouseEvent;
 
 
 public class Sportello {
 	
-	private static Scanner scanner;
+	
+	static Cittadino cittadino = new Cittadino();
+	static Gui_main gui_main = new Gui_main();
+	static Gui_inserisci gui_inserisci = new Gui_inserisci();
+	static Gui_mostra gui_mostra = new Gui_mostra();
 
 	
 	public static void main ( String[] args ) {
-		
-		scanner = new Scanner(System.in);
-
 	
-		Cittadino cittadino = new Cittadino();
-		Gui_inserisci gui_inserisci = new Gui_inserisci();
-		Gui_mostra gui_mostra = new Gui_mostra();
 		
-		String comando = "x";
-		
-		
-		while(true) {
-			
-			System.out.println("Premi i per inserire un nuovo cittadino");
-			//System.out.println("Premi e per eliminare un cittadino");
-			System.out.println("Premi m per mostrare l'elenco dei cittadini");
-			
-			// catturo la stringa inserita da tastiera
-			comando = scanner.next();
-			
-
-			// SE PREMO IL TASTO i CREAO LA FINESTRA 'INSERISCI CITTADINO'
-			if( comando.equals("i") ) {
-				
-				
-				java.awt.EventQueue.invokeLater(new Runnable() {
-					public void run() {
-						try {
-							
-							gui_inserisci.setVisible(true);	
-							
-							
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
+			// viene creata e visualizzata la finestra principale
+			java.awt.EventQueue.invokeLater(new Runnable() {
+				public void run() {
+					try {
+						
+						gui_main.setVisible(true);	
+						
+						
+					} catch (Exception e) {
+						e.printStackTrace();
 					}
-				});
-				
-				
-			} // fine if
+				}
+			});
 			
-			// SE PREMO IL TASTO m CREAO LA FINESTRA 'MOSTRA CITTADINO'
-			 if(  comando.equals("m") ) {
-				 
-					java.awt.EventQueue.invokeLater(new Runnable() {
-						public void run() {
-							try {
-								
-								gui_mostra.setVisible(true);	
-								gui_mostra.riempi_select(DB.recupera_cittadini());
-								
-								
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
-						}
-					});
 			
-		} // fine if
+	// ------------------------------------------------------		
+	// ---------- EVENTI AL CLICK SUI BOTTONI ---------------
+	// ------------------------------------------------------	
+			
+			
+			// ------------ EVENTI DELLA FINESTRA MAIN GUI
+			
+			// click tasto inserisci cittadino
+			gui_main.getBtnInserisciNuovoCittadino().addMouseListener(new MouseAdapter() {	
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					
+					//gui_main.setVisible(false);
+					crea_finestra_inserimento();
+					
+			
+				}
+			});
+			
+			
+			// click tasto mostra cittadini
+			gui_main.getBtnMostraCittadino().addMouseListener(new MouseAdapter() {	
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					
+					//gui_main.setVisible(false);
+					crea_finestra_mostrare();
+					
+			
+				}
+			});
+			
+		
+			// ------------ EVENTI DELLA FINESTRA GUI_INSERISCI
 			 
-			 
-				// AL CLICK DEL TASTO INSERISCI
+				// click tasto inserisci
 				gui_inserisci.getBtnNewButton().addMouseListener(new MouseAdapter() {	
 					@Override
 					public void mouseClicked(MouseEvent e) {
@@ -84,6 +78,7 @@ public class Sportello {
 						cittadino.setNato_il(gui_inserisci.getTextNatoIl());
 						
 						gui_inserisci.resetta();
+						gui_mostra.riempi_select(DB.recupera_cittadini());
 						
 						// passo l'oggetto cittadino al metodo statico della classe db
 						DB.aggiungi_cittadino( cittadino.formatta_cittadino() );
@@ -91,13 +86,64 @@ public class Sportello {
 					}
 				});
 				
-			 
-		} // fine while
+				
+				// ------------ EVENTI DELLA FINESTRA GUI_MOSTRA
+				
+				// click tasto cancella tutti i cittadini
+				gui_mostra.getBtnCancellaTutti().addMouseListener(new MouseAdapter() {	
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						
+						DB.cancella_cittadini();
+						gui_mostra.aggiorna_select();
+				
+					}
+				});
+				
+		
+	
 
 	} // fine main
+	
+	
+	// ----------- METODI ----------
 		
+	// crea la finestra dovo si inseriscono i cittadini
+	public static void crea_finestra_inserimento() {
 		
+		java.awt.EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					
+					gui_inserisci.setVisible(true);
+					
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 		
+	}	
+	
+	// crea la finestra dove vengono elencati i cittadini
+	public static void crea_finestra_mostrare() {
+			
+			java.awt.EventQueue.invokeLater(new Runnable() {
+				public void run() {
+					try {
+						
+						gui_mostra.setVisible(true);	
+						gui_mostra.riempi_select(DB.recupera_cittadini());
+						
+						
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			});
+			
+		}	
 
 	
 

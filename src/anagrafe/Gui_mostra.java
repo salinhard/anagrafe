@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.BorderLayout;
 
@@ -18,10 +19,21 @@ public class Gui_mostra extends JFrame {
 	
 	private JLabel titolo;
 	private JComboBox comboBox;
-	
+	private JButton btnCancellaTutti;
+
 	private String[] lista;
 
 
+	// GETTER E SETTER
+	
+	public JButton getBtnCancellaTutti() {
+		return btnCancellaTutti;
+	}
+
+
+	public void setBtnCancellaTutti(JButton btnCancellaTutti) {
+		this.btnCancellaTutti = btnCancellaTutti;
+	}
 
 	
 	
@@ -44,7 +56,7 @@ public Gui_mostra() {
 		
 		setResizable(false);
 		setBounds(100, 100, 450, 300);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
 		
 	}
@@ -57,8 +69,11 @@ public Gui_mostra() {
 		titolo.setFont(new Font("Lucida Grande", Font.BOLD, 25));
 		titolo.setBounds(61, 6, 343, 46);
 		titolo.setHorizontalAlignment(SwingConstants.CENTER);
-
 		getContentPane().add(titolo,  BorderLayout.NORTH);
+		
+		btnCancellaTutti = new JButton("Cancella tutti i cittadini");
+		btnCancellaTutti.setBounds(120, 223, 252, 38);
+		getContentPane().add(btnCancellaTutti,  BorderLayout.SOUTH);
 		
 	
 	}
@@ -72,6 +87,36 @@ public Gui_mostra() {
 		// riempio la jcombo con l'array
 		comboBox = new JComboBox(lista);
 		getContentPane().add(comboBox, BorderLayout.CENTER);
+		
+		
+	}
+	
+	
+	public void riempi_select( String[] lista ) {
+		
+		
+		// riempio la jcombo con l'array
+		comboBox = new JComboBox(lista);
+		getContentPane().add(comboBox, BorderLayout.CENTER);
+		
+		
+	}
+	
+	public void aggiorna_select() {
+		
+		
+		
+		
+		
+String[] ciao = new String[3]; 
+		
+		ciao[0] = "cioa";
+		ciao[1] = "come";
+		ciao[2] = "xtai";
+		
+		this.riempi_select(ciao);
+		
+		//comboBox.addItem();
 		
 		
 	}

@@ -12,12 +12,11 @@ public class DB {
 	
 	private static final String nome_file = "db.txt";
 	
-	private static PrintWriter output;
-	private static Scanner input;
-	
 	
 	
 	public static void aggiungi_cittadino( String cittadino ) {
+		
+		PrintWriter output = null;
 		
 	try {
 			
@@ -37,6 +36,8 @@ public class DB {
 	
 	
 	public static ArrayList<String> recupera_cittadini() {
+		
+		Scanner input = null;
 		
 		try {
 			
@@ -60,10 +61,35 @@ public class DB {
 			lista.add(riga);
 			
 		}
+		
+		input.close();
 				
 		
 		return lista;
 
+		
+	}
+	
+	public static void cancella_cittadini() {
+		
+		
+		PrintWriter output = null;
+		
+	try {
+			
+			output = new PrintWriter(nome_file);
+			
+		} catch (FileNotFoundException e) {
+			
+			System.out.print("Errore apertura file " + nome_file);
+			System.exit(0);
+		}
+		
+		output.print("");
+		
+		output.close();
+		
+		
 		
 	}
 	

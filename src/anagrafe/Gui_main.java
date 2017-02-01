@@ -22,6 +22,26 @@ public Gui_main() {
 		
 		inizializza();
 	}
+
+// GETTER E SETTER
+public JButton getBtnInserisciNuovoCittadino() {
+	return btnInserisciNuovoCittadino;
+}
+
+
+public void setBtnInserisciNuovoCittadino(JButton btnInserisciNuovoCittadino) {
+	this.btnInserisciNuovoCittadino = btnInserisciNuovoCittadino;
+}
+
+
+public JButton getBtnMostraCittadino() {
+	return btnMostraCittadino;
+}
+
+
+public void setBtnMostraCittadino(JButton btnMostraCittadino) {
+	this.btnMostraCittadino = btnMostraCittadino;
+}
 	
 	
 	private void inizializza(){
@@ -43,6 +63,9 @@ public Gui_main() {
 	}
 	
 	
+	
+
+
 	private void init_display() {
 		
 		
@@ -50,7 +73,7 @@ public Gui_main() {
 		btnInserisciNuovoCittadino.setBounds(20, 67, 200, 117);
 		getContentPane().add(btnInserisciNuovoCittadino);
 		
-		btnMostraCittadino = new JButton("Mostra cittadino");
+		btnMostraCittadino = new JButton("Mostra cittadini");
 		btnMostraCittadino.setBounds(232, 67, 200, 117);
 		getContentPane().add(btnMostraCittadino);
 		
