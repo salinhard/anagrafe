@@ -77,14 +77,16 @@ public class Sportello {
 					@Override
 					public void mouseClicked(MouseEvent e) {
 						
-						// valorizzo le proprieta dell'oggetto cittadino
+						// valorizzo le proprieta dell'oggetto cittadino recuperandole dalla gui
 						cittadino.setNome(gui_inserisci.getTextNome());
 						cittadino.setCognome(gui_inserisci.getTextCognome());
 						cittadino.setNato_a(gui_inserisci.getTextNatoA());
 						cittadino.setNato_il(gui_inserisci.getTextNatoIl());
 						
+						gui_inserisci.resetta();
+						
 						// passo l'oggetto cittadino al metodo statico della classe db
-						DB.aggiungi_cittadino( cittadino );
+						DB.aggiungi_cittadino( cittadino.formatta_cittadino() );
 				
 					}
 				});

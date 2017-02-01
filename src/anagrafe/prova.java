@@ -4,9 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.BorderLayout;
-import javax.swing.JComboBox;
-import javax.swing.SwingConstants;
+import javax.swing.JButton;
 
 public class prova {
 
@@ -42,13 +40,19 @@ public class prova {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		frame.getContentPane().add(lblNewLabel, BorderLayout.NORTH);
+		JButton btnInserisciNuovoCittadino = new JButton("Inserisci nuovo cittadino");
+		btnInserisciNuovoCittadino.setBounds(20, 67, 200, 117);
+		frame.getContentPane().add(btnInserisciNuovoCittadino);
 		
-		JComboBox comboBox = new JComboBox();
-		frame.getContentPane().add(comboBox, BorderLayout.CENTER);
+		JButton btnMostraCittadino = new JButton("Mostra cittadino");
+		btnMostraCittadino.setBounds(232, 67, 200, 117);
+		frame.getContentPane().add(btnMostraCittadino);
+		
+		JLabel lblAnagrafe = new JLabel("ANAGRAFE");
+		lblAnagrafe.setBounds(144, 6, 162, 49);
+		frame.getContentPane().add(lblAnagrafe);
 	}
 
 }

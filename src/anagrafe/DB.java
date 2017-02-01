@@ -17,7 +17,7 @@ public class DB {
 	
 	
 	
-	public static void aggiungi_cittadino( Cittadino cittadino ) {
+	public static void aggiungi_cittadino( String cittadino ) {
 		
 	try {
 			
@@ -29,13 +29,7 @@ public class DB {
 			System.exit(0);
 		}
 		
-		output.print(cittadino.getNome());
-		output.print(" ");
-		output.print(cittadino.getCognome());
-		output.print(" ");
-		output.print(cittadino.getNato_il());
-		output.print(" ");
-		output.println(cittadino.getNato_a());
+		output.println(cittadino);
 		
 		output.close();
 		

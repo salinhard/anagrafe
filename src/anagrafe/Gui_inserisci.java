@@ -27,56 +27,40 @@ public class Gui_inserisci extends JFrame  {
 	private JButton btnNewButton;
 	
 	
+	// GETTER E SETTER
 	public String getTextNome() {
 		return textNome.getText();
 	}
-
-
 	public void setTextNome(String textField) {
 		this.textNome.setText(textField);
 	}
-
-
 	public String getTextCognome() {
 		return textCognome.getText();
 	}
-
-
 	public void setTextCognome(String textField_1) {
 		this.textCognome.setText(textField_1);
 	}
-
-
 	public String getTextNatoIl() {
 		return textNatoIl.getText();
 	}
-
-
 	public void setTextNatoIl(String textField_2) {
 		this.textNatoIl.setText(textField_2);
 	}
-
-
 	public String getTextNatoA() {
 		return textNatoA.getText();
 	}
-
-
 	public void setTextNatoA(String textField_3) {
 		this.textNatoA.setText(textField_3);
 	}
-
-
 	public JButton getBtnNewButton() {
 		return btnNewButton;
 	}
-
-
 	public void setBtnNewButton(JButton btnNewButton) {
 		this.btnNewButton = btnNewButton;
 	}
 
 
+	// COSTRUTTORE
 	public Gui_inserisci() {
 
 		
@@ -152,9 +136,17 @@ public class Gui_inserisci extends JFrame  {
 		btnNewButton.setBounds(155, 234, 147, 38);
 		getContentPane().add(btnNewButton);
 		
+	
+	}
+	
+	
+	public void resetta() {
 		
+		textNome.setText("");
+		textCognome.setText("");
+		textNatoIl.setText("");
+		textNatoA.setText("");
 
-		
 	}
 	
 	

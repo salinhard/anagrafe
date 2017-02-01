@@ -60,20 +60,16 @@ public Gui_mostra() {
 
 		getContentPane().add(titolo,  BorderLayout.NORTH);
 		
-		
-
-		
-		
+	
 	}
 	
 	
 	public void riempi_select( ArrayList<String> arrayLista ) {
 		
-		
+		// trasformo l'array list in un array
 		lista = arrayLista.toArray(new String[arrayLista.size()]);
-		
-		
-	    
+	
+		// riempio la jcombo con l'array
 		comboBox = new JComboBox(lista);
 		getContentPane().add(comboBox, BorderLayout.CENTER);
 		
