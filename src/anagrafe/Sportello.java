@@ -77,11 +77,11 @@ public class Sportello {
 						cittadino.setNato_a(gui_inserisci.getTextNatoA());
 						cittadino.setNato_il(gui_inserisci.getTextNatoIl());
 						
-						gui_inserisci.resetta();
-						gui_mostra.riempi_select(DB.recupera_cittadini());
-						
 						// passo l'oggetto cittadino al metodo statico della classe db
 						DB.aggiungi_cittadino( cittadino.formatta_cittadino() );
+						
+						gui_inserisci.resetta();
+						gui_mostra.aggiorna_select();
 				
 					}
 				});
@@ -99,6 +99,16 @@ public class Sportello {
 				
 					}
 				});
+				
+		String[] ciao = new String[DB.recupera_cittadini().size()];
+		
+		ciao = DB.recupera_cittadini().toArray(new String[DB.recupera_cittadini().size()]);
+		
+		OrdinaArray.selectionSort(ciao);
+		
+		for(int i = 0; i < ciao.length; i++) {
+			System.out.println(ciao[i]);
+		}
 				
 		
 	
@@ -134,7 +144,7 @@ public class Sportello {
 					try {
 						
 						gui_mostra.setVisible(true);	
-						gui_mostra.riempi_select(DB.recupera_cittadini());
+						gui_mostra.aggiorna_select();
 						
 						
 					} catch (Exception e) {

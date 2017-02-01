@@ -1,11 +1,12 @@
 package anagrafe;
 
 import java.awt.Font;
-import java.util.ArrayList;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.BorderLayout;
@@ -18,10 +19,10 @@ public class Gui_mostra extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	private JLabel titolo;
-	private JComboBox comboBox;
 	private JButton btnCancellaTutti;
-
-	private String[] lista;
+	private JList list;
+	private DefaultListModel model;
+	private JScrollPane pane;
 
 
 	// GETTER E SETTER
@@ -75,52 +76,42 @@ public Gui_mostra() {
 		btnCancellaTutti.setBounds(120, 223, 252, 38);
 		getContentPane().add(btnCancellaTutti,  BorderLayout.SOUTH);
 		
+
+		model = new DefaultListModel();
+		
+		list = new JList(model);
+		
+		pane = new JScrollPane(list);
+		
+		/*
+		//JButton addButton = new JButton("Add Element");
+		    //JButton removeButton = new JButton("Remove Element");
+		    for (int i = 0; i < 15; i++)
+		      model.addElement("Element " + i);
+		*/
+	    getContentPane().add(pane, BorderLayout.CENTER);
+	   
+		
 	
 	}
 	
-	
-	public void riempi_select( ArrayList<String> arrayLista ) {
-		
-		// trasformo l'array list in un array
-		lista = arrayLista.toArray(new String[arrayLista.size()]);
-	
-		// riempio la jcombo con l'array
-		comboBox = new JComboBox(lista);
-		getContentPane().add(comboBox, BorderLayout.CENTER);
-		
-		
-	}
-	
-	
-	public void riempi_select( String[] lista ) {
-		
-		
-		// riempio la jcombo con l'array
-		comboBox = new JComboBox(lista);
-		getContentPane().add(comboBox, BorderLayout.CENTER);
-		
-		
-	}
 	
 	public void aggiorna_select() {
 		
+		String[] lista;
 		
+		lista = DB.recupera_cittadini().toArray(new String[DB.recupera_cittadini().size()]);
 		
+		model.clear();
 		
+		for( int i = 0 ; i < lista.length ; i++ ) {
+			
+			model.addElement(lista[i]);
+
+		}
 		
-String[] ciao = new String[3]; 
-		
-		ciao[0] = "cioa";
-		ciao[1] = "come";
-		ciao[2] = "xtai";
-		
-		this.riempi_select(ciao);
-		
-		//comboBox.addItem();
-		
-		
-	}
-	
+			
+	} // fine aggiorna select
 	
 
-}
+} // fine classe
