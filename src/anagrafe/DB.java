@@ -1,6 +1,7 @@
 package anagrafe;
 
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.PrintWriter;
 
 
@@ -14,9 +15,17 @@ public class DB {
 	// COSTRUTTORE
 	public DB() {
 		
-		try {
+	
+		
+		
+	} // fine costruttore
+	
+	
+	public void aggiungi_cittadino( Cittadino cittadino ) {
+		
+	try {
 			
-			output = new PrintWriter(nome_file);
+			output = new PrintWriter( new FileOutputStream(nome_file , true ));
 			
 		} catch (FileNotFoundException e) {
 			
@@ -24,13 +33,15 @@ public class DB {
 			System.exit(0);
 		}
 		
+		output.print(cittadino.getNome());
+		output.print("#");
+		output.print(cittadino.getCognome());
+		output.print("#");
+		output.print(cittadino.getNato_il());
+		output.print("#");
+		output.println(cittadino.getNato_a());
 		
-	} // fine costruttore
-	
-	
-	public void aggiungi_cittadino() {
-		
-		
+		output.close();
 		
 	}
 	
@@ -39,7 +50,6 @@ public class DB {
 	
 	//output = new PrintWriter(nome_file);
 
-	//output.println("riga n1 ");
-	//output.close();
+
 	
 }

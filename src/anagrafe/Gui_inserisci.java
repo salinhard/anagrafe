@@ -8,14 +8,15 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JButton;
 
-public class Grafica extends JFrame  {
+public class Gui_inserisci extends JFrame  {
+	
+	
 
 	private static final long serialVersionUID = 1L;
-	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField textNome;
+	private JTextField textCognome;
+	private JTextField textNatoIl;
+	private JTextField textNatoA;
 	
 	private JLabel lblNewLabel;
 	private JLabel lblNome;
@@ -26,7 +27,58 @@ public class Grafica extends JFrame  {
 	private JButton btnNewButton;
 	
 	
-	public Grafica() {
+	public String getTextNome() {
+		return textNome.getText();
+	}
+
+
+	public void setTextNome(String textField) {
+		this.textNome.setText(textField);
+	}
+
+
+	public String getTextCognome() {
+		return textCognome.getText();
+	}
+
+
+	public void setTextCognome(String textField_1) {
+		this.textCognome.setText(textField_1);
+	}
+
+
+	public String getTextNatoIl() {
+		return textNatoIl.getText();
+	}
+
+
+	public void setTextNatoIl(String textField_2) {
+		this.textNatoIl.setText(textField_2);
+	}
+
+
+	public String getTextNatoA() {
+		return textNatoA.getText();
+	}
+
+
+	public void setTextNatoA(String textField_3) {
+		this.textNatoA.setText(textField_3);
+	}
+
+
+	public JButton getBtnNewButton() {
+		return btnNewButton;
+	}
+
+
+	public void setBtnNewButton(JButton btnNewButton) {
+		this.btnNewButton = btnNewButton;
+	}
+
+
+	public Gui_inserisci() {
+
 		
 		inizializza();
 	}
@@ -53,10 +105,10 @@ public class Grafica extends JFrame  {
 	
 	private void init_display() {
 		
-		textField = new JTextField();
-		textField.setBounds(155, 64, 249, 26);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		textNome = new JTextField();
+		textNome.setBounds(155, 64, 249, 26);
+		getContentPane().add(textNome);
+		textNome.setColumns(10);
 		
 		lblNewLabel = new JLabel("Nuovo cittadino");
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.BOLD, 25));
@@ -73,28 +125,28 @@ public class Grafica extends JFrame  {
 		lblCognome.setBounds(82, 116, 61, 16);
 		getContentPane().add(lblCognome);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(155, 111, 249, 26);
-		getContentPane().add(textField_1);
+		textCognome = new JTextField();
+		textCognome.setColumns(10);
+		textCognome.setBounds(155, 111, 249, 26);
+		getContentPane().add(textCognome);
 		
 		lblDataDiNascita = new JLabel("Nato il");
 		lblDataDiNascita.setBounds(82, 158, 61, 16);
 		getContentPane().add(lblDataDiNascita);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(155, 153, 249, 26);
-		getContentPane().add(textField_2);
+		textNatoIl = new JTextField();
+		textNatoIl.setColumns(10);
+		textNatoIl.setBounds(155, 153, 249, 26);
+		getContentPane().add(textNatoIl);
 		
 		lblNatoA = new JLabel("Nato a");
 		lblNatoA.setBounds(82, 201, 61, 16);
 		getContentPane().add(lblNatoA);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(155, 196, 249, 26);
-		getContentPane().add(textField_3);
+		textNatoA = new JTextField();
+		textNatoA.setColumns(10);
+		textNatoA.setBounds(155, 196, 249, 26);
+		getContentPane().add(textNatoA);
 		
 		btnNewButton = new JButton("INSERISCI");
 		btnNewButton.setBounds(155, 234, 147, 38);
