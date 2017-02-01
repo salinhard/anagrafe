@@ -60,6 +60,7 @@ public class Sportello {
 							try {
 								
 								gui_mostra.setVisible(true);	
+								gui_mostra.riempi_select(DB.recupera_cittadini());
 								
 								
 							} catch (Exception e) {
@@ -88,7 +89,6 @@ public class Sportello {
 					}
 				});
 				
-DB.recupera_cittadini();
 			 
 		} // fine while
 

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -14,14 +15,6 @@ public class DB {
 	private static PrintWriter output;
 	private static Scanner input;
 	
-	
-	// COSTRUTTORE
-	public DB() {
-		
-	
-		
-		
-	} // fine costruttore
 	
 	
 	public static void aggiungi_cittadino( Cittadino cittadino ) {
@@ -49,8 +42,7 @@ public class DB {
 	}
 	
 	
-	
-	public static void recupera_cittadini() {
+	public static ArrayList<String> recupera_cittadini() {
 		
 		try {
 			
@@ -63,10 +55,21 @@ public class DB {
 			
 		}
 		
+		
+		ArrayList<String> lista = new ArrayList<String>(30);
+		
 		while (input.hasNextLine()) {
+			
+			
 			String riga = input.nextLine();
-			System.out.println(riga);
+			//System.out.println(riga);
+			lista.add(riga);
+			
 		}
+				
+		
+		return lista;
+
 		
 	}
 	

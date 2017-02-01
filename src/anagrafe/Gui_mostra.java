@@ -1,6 +1,7 @@
 package anagrafe;
 
 import java.awt.Font;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -52,8 +53,6 @@ public Gui_mostra() {
 	private void init_display() {
 		
 		
-
-		
 		titolo= new JLabel("Mostra cittadini");
 		titolo.setFont(new Font("Lucida Grande", Font.BOLD, 25));
 		titolo.setBounds(61, 6, 343, 46);
@@ -62,19 +61,25 @@ public Gui_mostra() {
 		getContentPane().add(titolo,  BorderLayout.NORTH);
 		
 		
-		lista = new String[10];
-	    for(int i=0;i<lista.length;i++)
-	       lista[i]="Elemento␣numero␣"+i;
-	    
+
+		
+		
+	}
+	
+	
+	public void riempi_select( ArrayList<String> arrayLista ) {
+		
+		
+		lista = arrayLista.toArray(new String[arrayLista.size()]);
+		
+		
 	    
 		comboBox = new JComboBox(lista);
 		getContentPane().add(comboBox, BorderLayout.CENTER);
 		
 		
-		
-
-		
 	}
+	
 	
 
 }
