@@ -100,12 +100,18 @@ public Gui_mostra() {
 		
 		String[] lista;
 		
+		// recupera tutti i cittadini dal file di testo
 		lista = DB.recupera_cittadini().toArray(new String[DB.recupera_cittadini().size()]);
 		
+		//ordina l'array in ordine creascente
+		OrdinaArray.selectionSort(lista);
+		
+		// cancella tutti gli elementi dalla lista nella gui
 		model.clear();
 		
 		for( int i = 0 ; i < lista.length ; i++ ) {
 			
+			// aggiunge tutti i cittadini dal file di testo alla lista della gui
 			model.addElement(lista[i]);
 
 		}

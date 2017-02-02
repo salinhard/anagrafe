@@ -2,6 +2,7 @@ package anagrafe;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Arrays;
 
 
 public class Sportello {
@@ -77,11 +78,21 @@ public class Sportello {
 						cittadino.setNato_a(gui_inserisci.getTextNatoA());
 						cittadino.setNato_il(gui_inserisci.getTextNatoIl());
 						
-						// passo l'oggetto cittadino al metodo statico della classe db
-						DB.aggiungi_cittadino( cittadino.formatta_cittadino() );
+						boolean check;
 						
-						gui_inserisci.resetta();
-						gui_mostra.aggiorna_select();
+						check = CheckInput.valida(cittadino , gui_inserisci);
+						
+						if(check) {
+							
+							// passo l'oggetto cittadino al metodo statico della classe db
+							DB.aggiungi_cittadino( cittadino.formatta_cittadino() );
+							
+							gui_inserisci.resetta();
+							gui_mostra.aggiorna_select();
+							
+						}
+						
+						System.out.println(check);
 				
 					}
 				});
@@ -99,17 +110,6 @@ public class Sportello {
 				
 					}
 				});
-				
-		String[] ciao = new String[DB.recupera_cittadini().size()];
-		
-		ciao = DB.recupera_cittadini().toArray(new String[DB.recupera_cittadini().size()]);
-		
-		OrdinaArray.selectionSort(ciao);
-		
-		for(int i = 0; i < ciao.length; i++) {
-			System.out.println(ciao[i]);
-		}
-				
 		
 	
 

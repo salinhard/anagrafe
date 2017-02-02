@@ -10,6 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JLabel;
+import java.awt.Color;
 
 public class prova extends JPanel {
 
@@ -18,8 +20,6 @@ public class prova extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-JList list;
-
   DefaultListModel model;
 
   int counter = 15;
@@ -27,29 +27,16 @@ JList list;
   public prova() {
     setLayout(new BorderLayout());
     model = new DefaultListModel();
-    list = new JList(model);
-    JScrollPane pane = new JScrollPane(list);
-    JButton addButton = new JButton("Add Element");
-    JButton removeButton = new JButton("Remove Element");
+    JScrollPane pane = new JScrollPane();
     for (int i = 0; i < 15; i++)
       model.addElement("Element " + i);
 
-    addButton.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        model.addElement("Element " + counter);
-        counter++;
-      }
-    });
-    removeButton.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        if (model.getSize() > 0)
-          model.removeElementAt(0);
-      }
-    });
-
     add(pane, BorderLayout.NORTH);
-    add(addButton, BorderLayout.WEST);
-    add(removeButton, BorderLayout.EAST);
+    
+    JLabel lblNewLabel = new JLabel("New label");
+    lblNewLabel.setForeground(Color.RED);
+    lblNewLabel.setBackground(Color.RED);
+    add(lblNewLabel, BorderLayout.CENTER);
   }
 
   public static void main(String s[]) {

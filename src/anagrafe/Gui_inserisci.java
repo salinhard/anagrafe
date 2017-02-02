@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JButton;
 
@@ -23,6 +24,11 @@ public class Gui_inserisci extends JFrame  {
 	private JLabel lblCognome;
 	private JLabel lblDataDiNascita;
 	private JLabel lblNatoA;
+	
+	private JLabel lblNomeAlert;
+	private JLabel lblCognomeAlert;
+	private JLabel lblNatoIlAlert;
+	private JLabel lblNatoAAlert;
 	
 	private JButton btnNewButton;
 	
@@ -60,6 +66,32 @@ public class Gui_inserisci extends JFrame  {
 	}
 
 
+	public String getLblNomeAlert() {
+		return lblNomeAlert.getText();
+	}
+	public void setLblNomeAlert(String stringa) {
+		this.lblNomeAlert.setText(stringa);
+	}
+	public String getLblCognomeAlert() {
+		return lblCognomeAlert.getText();
+	}
+	public void setLblCognomeAlert(String stringa) {
+		this.lblCognomeAlert.setText(stringa);
+	}
+	public String getLblNatoIlAlert() {
+		return lblNatoIlAlert.getText();
+	}
+	public void setLblNatoIlAlert(String stringa) {
+		this.lblNatoIlAlert.setText(stringa);
+	}
+	public String getLblNatoAAlert() {
+		return lblNatoAAlert.getText();
+	}
+	public void setLblNatoAAlert(String stringa) {
+		this.lblNatoAAlert.setText(stringa);
+	}
+	
+	
 	// COSTRUTTORE
 	public Gui_inserisci() {
 
@@ -94,6 +126,11 @@ public class Gui_inserisci extends JFrame  {
 		getContentPane().add(textNome);
 		textNome.setColumns(10);
 		
+		lblNomeAlert = new JLabel();
+		lblNomeAlert.setForeground(Color.RED);
+		lblNomeAlert.setBounds(155, 84, 249, 26);
+		getContentPane().add(lblNomeAlert);
+		
 		lblNewLabel = new JLabel("Nuovo cittadino");
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.BOLD, 25));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -105,9 +142,15 @@ public class Gui_inserisci extends JFrame  {
 		lblNome.setBounds(82, 69, 61, 16);
 		getContentPane().add(lblNome);
 		
+		
 		lblCognome = new JLabel("Cognome");
 		lblCognome.setBounds(82, 116, 61, 16);
 		getContentPane().add(lblCognome);
+		
+		lblCognomeAlert = new JLabel();
+		lblCognomeAlert.setBounds(155, 130, 249, 26);
+		lblCognomeAlert.setForeground(Color.RED);
+		getContentPane().add(lblCognomeAlert);
 		
 		textCognome = new JTextField();
 		textCognome.setColumns(10);
@@ -118,6 +161,11 @@ public class Gui_inserisci extends JFrame  {
 		lblDataDiNascita.setBounds(82, 158, 61, 16);
 		getContentPane().add(lblDataDiNascita);
 		
+		lblNatoIlAlert = new JLabel();
+		lblNatoIlAlert.setBounds(155, 171, 249, 26);
+		lblNatoIlAlert.setForeground(Color.RED);
+		getContentPane().add(lblNatoIlAlert);
+		
 		textNatoIl = new JTextField();
 		textNatoIl.setColumns(10);
 		textNatoIl.setBounds(155, 153, 249, 26);
@@ -126,6 +174,11 @@ public class Gui_inserisci extends JFrame  {
 		lblNatoA = new JLabel("Nato a");
 		lblNatoA.setBounds(82, 201, 61, 16);
 		getContentPane().add(lblNatoA);
+		
+		lblNatoAAlert = new JLabel();
+		lblNatoAAlert.setBounds(155, 214, 249, 26);
+		lblNatoAAlert.setForeground(Color.RED);
+		getContentPane().add(lblNatoAAlert);
 		
 		textNatoA = new JTextField();
 		textNatoA.setColumns(10);
