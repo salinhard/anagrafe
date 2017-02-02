@@ -1,1 +1,3 @@
-   *Nome:  MANUEL.   *Cognome:  SALINARDI.   *Nato il:  677.   *Nato a:  RHO.
+   *Cognome:  SALINARDO.   *Nome:  MANUEL.   *Nato il:  98.   *Nato a:  TRENTO.
+   *Cognome:  FONTANA.   *Nome:  JIMMI.   *Nato il:  21.   *Nato a:  TEXAS.
+   *Cognome:  ANITA.   *Nome:  RITA.   *Nato il:  89.   *Nato a:  TYU.

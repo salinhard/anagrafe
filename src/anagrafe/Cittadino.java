@@ -50,8 +50,8 @@ public class Cittadino {
 
 	public String formatta_cittadino() {
 		
-		String cittadina_formattato = "   *Nome:  " +  this.getNome() + "." +
-									  "   *Cognome:  " + this.getCognome() + "." +
+		String cittadina_formattato = "   *Cognome:  " + this.getCognome() + "." +
+									  "   *Nome:  " +  this.getNome() + "." +
 									  "   *Nato il:  " + this.getNato_il() + "." +
 									  "   *Nato a:  " + this.getNato_a() + "." ;
 		
